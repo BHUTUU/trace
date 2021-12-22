@@ -1,0 +1,35 @@
+.login{
+width: 400px;
+height: 400px;
+color: white;
+background-color: black;
+padding-left: 150px;
+border: black 2px solid;
+border-radius: 11px;
+padding-top: 150px;
+margin-left: 220px;
+
+font-size: 40px;
+}
+
+.btn{
+font-size: 38px;
+border: white 2px solid;
+color: blue;
+border-radius: 8px;
+margin-right: 20px;
+width: 250px;
+}
+
+.img1{
+margin-top:300px;
+margin-left: 170
+}
+
+#username1{
+width: 250px;
+}
+
+#password1{
+width: 250px;
+}
