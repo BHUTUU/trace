@@ -1,192 +1,199 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,5      00,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
 {
-margim: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'poppins',sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins',sans-serif;
 }
 
-body{
-overflow: hidden;
+body
+{
+  overflow: hidden;
 }
 
-section{
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 100vh;
-background: linear-gradient(to bottom,#f1f4f9,#dff1ff);
+section
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom,#f1f4f9,#dff1ff);
 }
 
-section .color{
-position: absolute;
-filter: blur(300px);
+section .color
+{
+  position: absolute;
+  filter: blur(300px);
 }
 
-section .color:nth-child(1){
-width: 600px;
-height: 600px;
-background: #ff359b;
+section .color:nth-child(1)
+{
+  width: 600px;
+  height: 600px;
+  background: #ff359b;
 }
 
-section .color:nth-child(2){
-bottom: -150px;
-left: 100px;
-width: 500px;
-height: 500px;
-background: #fffd87;
+section .color:nth-child(2)
+{
+  bottom: -150px;
+  left: 100px;
+  width: 500px;
+  height: 500px;
+  background: #fffd87;
 }
 
-section .color:nth-child(3){
-bottom: 50px;
-right: 100px;
-width: 300px;
-height: 300px;
-background: #00d2ff;
+section .color:nth-child(3)
+{
+  bottom: 50px;
+  right: 100px;
+  width: 300px;
+  height: 300px;
+  background: #00d2ff;
 }
 
 .box{
-position: relative;
+  position: relative;
 }
 
 .box .square{
-position: absolute;
-backdrop-filter: blur(5px);
-box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-border: 1px solid rgba(225,225,225,0.5);
-border-right: 1px solid rgba(225,225,225,0.2);
-border-bottom: 1px solid rgba(225,225,225,0.2);
-background: rgba(225,225,225,0.1);
-border-radius: 10px;
-animation: animated 10s linear infinite;
-animation-delay: calc(-ls * var(--i));
+  position: absolute;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+  border: 1px solid rgba(225,225,225,0.5);
+  border-right: 1px solid rgba(225,225,225,0.2);
+  border-bottom: 1px solid rgba(225,225,225,0.2);
+  background: rgba(225,225,225,0.1);
+  border-radius: 10px;
+  animation: animated 10s linear infinite;
+  animation-delay: calc(-ls * var(--i));
 }
 
-@ keyframes animate
+@keyframes animate
 {
-0%,100%
-{
-transform: translateY(-40px);
-}
-50%
-{
-transform: translateY(40px);
-}
+  0%, 100%
+  {
+    transform: translateY(-40px);
+  }
+  50%
+  {
+   transform: translateY(40px);
+  }
 }
 
 .box .square:nth-child(1){
-top: -50px;
-right: -60px;
-width: 100px;
-height: 100px;
+  top: -50px;
+  right: -60px;
+  width: 100px;
+  height: 100px;
 }
 
 .box .square:nth-child(2){
-top: 150px;
-left: -100px;
-width: 120px;
-height: 120px;
+  top: 150px;
+  left: -100px;
+  width: 120px;
+  height: 120px;
 }
 
 .box .square:nth-child(3){
-bottom: 50px;
-right: -60px;
-width: 80px;
-height: 80px;
-z-index: 2;
+  bottom: 50px;
+  right: -60px;
+  width: 80px;
+  height: 80px;
+  z-index: 2;
 }
 
 .box .square:nth-child(4){
-bottom: -80px;
-left: 100px;
-width: 50px;
-height: 50px;
+  bottom: -80px;
+  left: 100px;
+  width: 50px;
+  height: 50px;
 }
 
 .box .square:nth-child(5){
-top: -80px;
-left: 140px;
-width: 60px;
-height: 60px;
+  top: -80px;
+  left: 140px;
+  width: 60px;
+  height: 60px;
 }
 
 .container{
-height: 300px;
-background: rgba(225,225,225,0.1);
-border: 1px solid white;
-border-radius: 10px;
-display: flex;
-background-filter: blur(5px);
-box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-margin-left: 400px;
-margin-top: 400px;
-padding-left: 280px;
-padding-top: 70px;
-padding-right: 300px;
-padding-bottom: 100px;
+  height: 300px;
+  background: rgba(225,225,225,0.1);
+  border: 1px solid white;
+  border-radius: 10px;
+  display: flex;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+  margin-left: 400px;
+  margin-top: 400px;
+  padding-left: 280px;
+  padding-top: 70px;
+  padding-right: 300px;
+  padding-bottom: 100px;
 }
 
 .form{
-position: relative;
-width: 400px;
-height: 200px;
-padding-top: 2px;
+  position: relative;
+  width: 400px;
+  height: 200px;
+  padding-top: 2px;
 }
 
 .form h2{
-position: relative;
-color: #fff;
-fount-size: 25px;
-letter-spacing: 1px;
-margin-bottom: 30px;
-margin-top: 10px;
+  position: relative;
+  color: #fff;
+  font-size: 25px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .form h2::before{
-content: '';
-position: absolute;
-left: 0;
-bottom: -10px;
-width: 80px;
-height: 4px;
-background: #fff;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 80px;
+  height: 4px;
+  background: #fff;
 }
 
 form .inputbox{
-width: 100%;
-margin-top: 20px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 form .inputbox input{
-width: 100%;
-background: rgba(225,225,225,0.2);
-border: none;
-outline: none;
-padding: 10px 20px;
-border-radius: 35px;
-border: 1px solid rgba(225,225,225,0.5);
-border-right: 1px solid rgba(225,225,225,0.2);
-border-bottom: 1px solid rgba(225,225,225,0.2);
-fount-size: 12px;
-letter-spacing: 1px;
-color: #fff;
-box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  width: 100%;
+  background: rgba(225,225,225,0.2);
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 35px;
+  border: 1px solid rgba(225,225,225,0.5);
+  border-right: 1px solid rgba(225,225,225,0.2);
+  border-bottom: 1px solid rgba(225,225,225,0.2);
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .form .inputbox input::placeholder{
-color: #fff;
+  color: #fff;
 }
 
 .form .inputbox input[type="submit"]{
-background: #fff;
-color: #666;
-cursor: pointer;
-margin-bottom: 20px;
-fount-weight: 600;
+  background: #fff;
+  color: #666;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .forget{
-margin-top: 5px;
-color: #fff
-font-size: 10px;
+  margin-top: 5px;
+  color: #fff;
+  font-size: 10px;
 }
