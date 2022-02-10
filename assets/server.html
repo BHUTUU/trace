@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glassmorphism Battery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="server.css">
 </head>
 <body>
     <header>
-        <p>TRACE LOGIN PANEL:: UNAME</p>
+        <p id="uname">TRACE LOGIN PANEL::username</p>
         <ul>
             <li><a href="." class="active">HOME</a></li>
             <li><a href="#">ABOUT</a></li>
@@ -28,6 +28,8 @@
         </div>
     </section>
     <script>
+        b=localStorage.getItem("usename");
+        document.getElementById('uname').innerHTML="TRACE LOGIN PANEL:: "+b;
         let sec = document.querySelector('.sec');
         let toggle = document.querySelector('.toggle');
         toggle.onclick = function() {
