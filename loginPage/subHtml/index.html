@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Battery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <p>TRACE LOGIN PANEL:: UNAME</p>
+        <ul>
+            <li><a href="." class="active">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">HELP</a></li>
+            <li><a href="#">Log out</a></li>
+        </ul>
+    </header>
+    <section class="sec">
+        <div class="toggle"></div>
+        <div class="box">
+            <div class="content">
+                <h3>TRACE</h3>
+                <div class="percent">SENDING LINK: l.in.k</div>
+            </div>
+        </div>
+    </section>
+    <script>
+        let sec = document.querySelector('.sec');
+        let toggle = document.querySelector('.toggle');
+        toggle.onclick = function() {
+            sec.classList.toggle('dark');
+        }
+    </script>
+</body>
+</html>
