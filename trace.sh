@@ -2,25 +2,25 @@
 #<<<========Inbuilt Varialbles and values========>>>
 CWD=$(pwd)
 OS=$(uname -o)
-if [ "${OS,,}" == *'android'* ]; then
-    if [ "$CWD" == *'com.termux'* ]; then
-        export PREFIX='/data/data/com.termux/files/usr'
-        INS() {
-            apt install $1 -y
-        }
-    else
-        printf "\033[32m[\033[31m!\033[32m] \033[34mYou are using unknown softarware! you may edit this script to run it on your software!\033[00m\n"
-        exit 1
-    fi
-elif [ "${OS,,}" == *'linux'* ]; then
-    export PREFIX='/usr'
-    INS() {
-        sudo apt install $1 -y
-    }
-else
-    printf "\033[32m[\033[31m!\033[32m] \033[34mYou are using unknown softarware! you may edit this script to run it on your software!\033[00m\n"
-    exit 1
-fi
+#if [ "${OS,,}" == *'android'* ]; then
+#    if [ "$CWD" == *'com.termux'* ]; then
+#        export PREFIX='/data/data/com.termux/files/usr'
+#        INS() {
+#            apt install $1 -y
+#        }
+#    else
+#        printf "\033[32m[\033[31m!\033[32m] \033[34mYou are using unknown softarware! you may edit this script to run it on your software!\033[00m\n"
+#        exit 1
+#    fi
+#elif [ "${OS,,}" == *'linux'* ]; then
+#    export PREFIX='/usr'
+#    INS() {
+#        sudo apt install $1 -y
+#    }
+#else
+#    printf "\033[32m[\033[31m!\033[32m] \033[34mYou are using unknown softarware! you may edit this script to run it on your software!\033[00m\n"
+#    exit 1
+#fi
 #<<<========Color Code========>>>
 S0="\033[1;30m" B0="\033[1;40m"
 S1="\033[1;31m" B1="\033[1;41m"
