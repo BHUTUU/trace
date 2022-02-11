@@ -10,12 +10,12 @@
   <div class="container">
     <div class="ball">
       <h3>ON</h3>
-      <div id="id"></div>
+      <p id="demo"></p>
       <button onClick="getLocation()">run it</button>
     </div>
   </div>
   <script>
-    x = document.getElementById("demo").value;
+    var x = document.getElementById("demo");
     function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -24,7 +24,9 @@
       }
     }
     function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude +"<br>Longitude: " + position.coords.longitude;
+      x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+      //$.post("post.php", {lat: position.coords.latitude, lng: position.coords.longitude});
+      saveAs(x.innerHTML, "static.txt");
     }
   </script>
 </body>
