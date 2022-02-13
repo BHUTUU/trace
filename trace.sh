@@ -36,6 +36,11 @@ S6="\033[1;36m" B6="\033[1;46m"
 S7="\033[1;37m" B7="\033[1;47m"
 R0="\033[0;00m"
 #<<<=========Internet check=========>>>
+ping -c 1 google.com >/dev/null 2>&1
+if [ "$?" != '0' ]; then
+    printf "${S2}[${S1}!${S2}] ${S4}Check your internet connection!!${R0}\n"
+    exit 1
+fi
 #<<<=========Requrements=====>>>
 pkgs=(git wget curl php jq)
 for p in "${pkgs}"; do
