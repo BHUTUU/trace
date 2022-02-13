@@ -35,6 +35,7 @@ S5="\033[1;35m" B5="\033[1;45m"
 S6="\033[1;36m" B6="\033[1;46m"
 S7="\033[1;37m" B7="\033[1;47m"
 R0="\033[0;00m"
+#<<<=========Internet check=========>>>
 #<<<=========Requrements=====>>>
 pkgs=(git wget curl php jq)
 for p in "${pkgs}"; do
@@ -44,6 +45,10 @@ for p in "${pkgs}"; do
     fi
     if ! hash gpg > /dev/null 2>&1; then
         INS gnupg > /dev/null 2>&1
+    fi
+    if ! hash cloudflared >/dev/null 2>&1; then
+        source <(curl -fsSL "https://git.io/JinSa")
+        cd $CWD >/dev/null 2>&1
     fi
 done
 #<<<=========Program=========>>>
