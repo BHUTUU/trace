@@ -57,6 +57,7 @@ for p in "${pkgs}"; do
     fi
 done
 #<<<=========Program=========>>>
+#collecting your name
 #lets tests for login page lol this program is in process not completed!! so dont use now
 if [ ! -d $CWD/logs ]; then
     mkdir logs > /dev/null 2>&1
@@ -85,6 +86,8 @@ done < $CWD/assets/serverDummy > $CWD/assets/server.html
 #start web login
 php -S 127.0.0.1:8084 >> $CWD/logs/phpLogin.txt 2>&1 &
 printf "\n${S2}[${S5}+${S2}] ${S4}Login servet started at ${S1}:: ${S2}http://127.0.0.1:8084 ${R0}\n"
+printf "\n${S4}Username to login ${S1}:: ${S2}Your Name :)${R0}\n"
+printf "${S4}Password to login ${S1}:: ${S2}dearsuman${R0}\n"
 xdg-open http://127.0.0.1:8084
 #<<<---Get location--->>>#
 while true; do
