@@ -78,7 +78,7 @@ printf "\n${S2}[${S5}+${S2}] ${S4}Login servet started at ${S1}:: ${S2}http://12
 xdg-open http://127.0.0.1:8084
 #<<<---Get location--->>>#
 while true; do
-    if [ -z $(cat $CWD/assets/send/result.txt) ]; then
+    if [ -z $(cat $CWD/assets/send/php/result.txt) ]; then
         sleep 0.3
     else
         latitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lat)
