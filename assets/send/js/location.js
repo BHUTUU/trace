@@ -26,7 +26,7 @@ function locate()
       success: function(){$('#change').html('switched on :)');},
       mimeType: 'text'
     });
-    alert('Thankyou For Taking Interest in Near You...This Product is Coming Soon...');
+    alert('Thankyou For switching me on :)');
   };
 }
 
