@@ -79,6 +79,7 @@ cat <<- EQF >$CWD/maindb.json
     ]
 }
 EQF
+fi
 #<<<::::Create logger::::>>>#
 rm -rf $CWD/assets/index.html >/dev/null 2>&1
 while read -r M; do
