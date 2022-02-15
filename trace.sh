@@ -13,7 +13,7 @@ if [[ ${OS,,} == *'android'* ]]; then
         if ! hash termux-chroot >/dev/null 2>&1; then
             INS proot >/dev/null 2>&1 | printf "\033[32mInstalling:: package: proot\033[00m\n"
         fi
-        for pk in ${spkg[@]}; then
+        for pk in ${spkg[@]}; do
             if ! dpkg --list | grep "$pk" >/dev/null 2>&1; then
                 INS $px > /dev/null 2>&1 | printf "\033[32mInstalling:: package: ${pk}\033[00m\n"
             fi
