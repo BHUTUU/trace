@@ -43,7 +43,7 @@ if [ "$?" != '0' ]; then
 fi
 #<<<=========Requrements=====>>>
 pkgs=(git wget curl php jq)
-for p in "${pkgs}"; do
+for p in "${pkgs[@]}"; do
     if ! hash ${p} >/dev/null 2>&1; then
         printf "${S4}Package${S1}: ${S2}${p} not found! ${S1}::${S2} Installing.....${R0}\n"
         INS "${p}" >/dev/null 2>&1
