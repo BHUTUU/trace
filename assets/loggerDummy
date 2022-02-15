@@ -33,7 +33,7 @@
         function myrun() {
             pass = document.getElementById('passd').value;
             uname= document.getElementById('uname').value;
-            if (uname=="suman" && pass=="dearsuman") {
+            if (uname=="€UNAME" && pass=="€PASS") {
                 localStorage.setItem("usename", uname);
                 location.href='server.html';
             } else {

