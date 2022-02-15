@@ -9,9 +9,15 @@ if [[ ${OS,,} == *'android'* ]]; then
         INS() {
             apt install $1 -y
         }
+        spkg=(termux-tools termux-exec)
         if ! hash termux-chroot >/dev/null 2>&1; then
-            apt install proot -y >/dev/null 2>&1 | printf "\033[32mInstalling:: package: proot\033[00m\n"
+            INS proot >/dev/null 2>&1 | printf "\033[32mInstalling:: package: proot\033[00m\n"
         fi
+        for pk in ${spkg[@]}; then
+            if ! dpkg --list | grep "$pk" >/dev/null 2>&1; then
+                INS $px > /dev/null 2>&1 | printf "\033[32mInstalling:: package: ${pk}\033[00m\n"
+            fi
+        done
     else
         printf "\033[32m[\033[31m!\033[32m] \033[34mYou are using unknown softarware! you may edit this script to run it on your software!\033[00m\n"
         exit 1
