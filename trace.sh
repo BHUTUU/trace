@@ -60,7 +60,7 @@ done
 #collecting your name
 if [ -f $CWD/maindb.json ]; then
     uname=$(cat $CWD/maindb.json | jq -r .Login[].username)
-    Password=$(cat $CWD/maindb.json | jq -r .Login[].password)
+    password=$(cat $CWD/maindb.json | jq -r .Login[].password)
 else
     printf "\nLets authorise you to use ${S1}:: ${S4}trace${R0}\n\n"
     printf "${S3}Enter a username: ${S4}"; read uname
