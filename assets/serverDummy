@@ -12,7 +12,7 @@
     <header>
         <p id="uname">TRACE LOGIN PANEL::username</p>
         <ul>
-            <li><a class="active">WELCOME/a></li>
+            <li><a class="active">WELCOME</a></li>
             <!--<li><a href="About.html">ABOUT</a></li>
             <li><a href="help.html">HELP</a></li>
             <li><a href="http://127.0.0.1:8084" onClick="offFunc()">Log out</a></li>-->
