@@ -102,7 +102,7 @@ if [ ! -d $CWD/logs ]; then
     mkdir logs > /dev/null 2>&1
 else
     rm -rf $CWD/logs/phpLogs.txt $CWD/logs/phpSend.txt $CWD/logs/cloudflare-log.txt >/dev/null 2>&1
-    rf -rf $Result >/dev/null 2>&1
+    rm -rf $Result >/dev/null 2>&1
     rm -rf $Infos >/dev/null 2>&1
 fi
 if [ -e $Result ]; then
